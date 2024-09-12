@@ -1,0 +1,36 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.3.3'
+    id 'io.spring.dependency-management' version '1.1.6'
+    id "io.freefair.lombok" version "8.10"
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter'
+    implementation 'net.javacrumbs.shedlock:shedlock-spring:5.15.1'
+    implementation 'net.javacrumbs.shedlock:shedlock-provider-dynamodb2:5.15.1'
+    implementation 'software.amazon.awssdk:dynamodb-enhanced:2.27.17'
+    implementation 'com.google.guava:guava:33.3.0-jre'
+    implementation 'org.springframework.retry:spring-retry:2.0.8'
+    implementation 'org.springframework:spring-aspects:6.1.12'
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}

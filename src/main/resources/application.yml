@@ -1,0 +1,18 @@
+aws:
+  dynamodb:
+    accessKey: "access key"
+    secretKey: "secret key"
+
+scheduling:
+  tasks:
+    schedule: "* * * * * *"
+  timezone: "Australia/Melbourne"
+  rateLimiter:
+    maxRatePerSecond: 1
+  retry:
+    maxAttempts: 3
+    delayMs: 1000
+    backoffMultiplier: 2
+  shedlock:
+    lockAtLeastFor: "5m"
+    lockAtMostFor: "9m"
